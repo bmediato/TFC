@@ -1,6 +1,7 @@
 import { ModelStatic } from 'sequelize';
 import ITeam from '../interfaces/ITeams';
 import Teams from '../database/models/Teams';
+import HttpException from '../exceptions/HttpException';
 
 class TeamService {
   private modelTeam: ModelStatic<Teams> = Teams;
@@ -12,7 +13,7 @@ class TeamService {
 
   public async getById(id:number): Promise<ITeam | null> {
     const team = await this.modelTeam.findByPk(id);
-    if (!team) throw new Error('Team not found');
+    if (!team) throw new HttpException(400, 'Team not found');
     return team;
   }
 }
