@@ -8,3 +8,5 @@ class HttpException extends Error {
 }
 
 export default HttpException;
+
+// criei basedo no exercicio do course so dia 9.4

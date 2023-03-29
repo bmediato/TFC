@@ -9,3 +9,10 @@ export interface IUser extends ILoginUser{
   username: string;
   role: string;
 }
+
+export interface IUserWithouPassword {
+  id: number;
+  username: string;
+  role: string;
+  email: string;
+}
