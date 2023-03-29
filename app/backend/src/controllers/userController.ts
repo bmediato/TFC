@@ -8,8 +8,9 @@ class UserController {
 
   public async login(req: Request, res:Response, next:NextFunction) {
     try {
-      const result = await this.service.login(req.body);
-      const token = await this.tokenCreate.createToken(result);
+      const { id, username, role, email } = await this.service.login(req.body);
+
+      const token = await this.tokenCreate.createToken({ id, username, role, email });
 
       return res.status(200).json({ token });
     } catch (error) {

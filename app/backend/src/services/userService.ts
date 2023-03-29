@@ -7,9 +7,9 @@ import { ILoginUser, IUser } from '../interfaces/IUser';
 class UserService {
   private modelUser: ModelStatic<Users> = Users;
 
-  public async login(user:ILoginUser): Promise<IUser | null> {
+  public async login(user:ILoginUser): Promise<IUser> {
     const { email, password } = user;
-    const result = await this.modelUser.findOne({ where: { email, password } });
+    const result = await this.modelUser.findOne({ where: { email } });
     console.log(result);
     if (!result) throw new HttpException(404, 'user not found');
 

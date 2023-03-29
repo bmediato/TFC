@@ -19,7 +19,7 @@ class App {
 
   private routes():void {
     this.app.use('/teams', teamRouter);
-    this.app.use('/', userRouter);
+    this.app.use(userRouter);
   }
 
   private config():void {
