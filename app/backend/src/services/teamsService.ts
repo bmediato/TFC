@@ -10,10 +10,11 @@ class TeamService {
     return team;
   }
 
-  // public async getById(id:number | string): Promise<ITeam | null> {
-  //   const team = await this.modelTeam.findByPk(+id);
-  //   return team;
-  // }
+  public async getById(id:number): Promise<ITeam | null> {
+    const team = await this.modelTeam.findByPk(id);
+    if (!team) throw new Error('Team not found');
+    return team;
+  }
 }
 
 export default TeamService;
