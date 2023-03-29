@@ -6,8 +6,15 @@ const getAll = async (req: Request, res: Response) => {
   res.status(200).json(result);
 };
 
+const getById = async (req:Request, res:Response) => {
+  const { id } = req.params;
+  const result = await teamService.getById(id);
+  res.status(200).json(result);
+};
+
 const teamController = {
   getAll,
+  getById,
 };
 
 export default teamController;
