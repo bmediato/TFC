@@ -1,25 +1,11 @@
 import * as jwt from 'jsonwebtoken';
 import { IUserWithouPassword } from '../interfaces/IUser';
 
-class Auth {
-  private secret = 'segredinho';
+const secret: string = process.env.JWT_SECRET || 'segredinho';
 
-  public async createToken(data: IUserWithouPassword) {
-    // estava dando erro sem o jwt.SignOptions, erro de sobrecarga
+export const createToken = (data: IUserWithouPassword) => jwt.sign({ data }, secret, {
+  algorithm: 'HS256',
+  expiresIn: '5h',
+});
 
-    const config: jwt.SignOptions = {
-      expiresIn: '2h',
-      algorithm: 'HS256',
-    };
-
-    const token = jwt.sign({ data }, this.secret, config);
-    return token;
-  }
-
-  public async verifyToken(token: string) {
-    const verToken = jwt.verify(token, this.secret);
-    return verToken;
-  }
-}
-
-export default Auth;
+export const verifyToken = (token: string) => jwt.verify(token, secret);

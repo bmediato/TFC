@@ -2,8 +2,7 @@ import { NextFunction, Request, Response } from 'express';
 import TeamService from '../services/teamService';
 
 class TeamController {
-  private service = new TeamService();
-
+  constructor(private service = new TeamService()) {}
   public async getAll(_req: Request, res:Response, next: NextFunction): Promise<Response | void> {
     try {
       const team = await this.service.getAll();
