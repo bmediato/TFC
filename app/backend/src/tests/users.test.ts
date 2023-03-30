@@ -40,16 +40,16 @@ describe('rota /login', () => {
         'email': 'admin@admin.com',
         'password': 'batata'
       });
-      expect(chaiHttpResponse.status).to.be.equal(400);
-      expect(chaiHttpResponse.body).to.deep.equal({ "message": "password invalid" })
+      expect(chaiHttpResponse.status).to.be.equal(401);
+      expect(chaiHttpResponse.body).to.deep.equal({ "message": "Invalid email or password" })
     });
     it('retorna erro ao passar email invalido', async () => {
       chaiHttpResponse = await chai.request(app).post('/login').send({
         'email': 'admin@admin.co',
         'password': 'secret_admin'
       });
-      expect(chaiHttpResponse.status).to.be.equal(404);
-      expect(chaiHttpResponse.body).to.deep.equal({ "message": "user not found" })
+      expect(chaiHttpResponse.status).to.be.equal(401);
+      expect(chaiHttpResponse.body).to.deep.equal({ "message": "Invalid email or password" })
     })
   })
 })

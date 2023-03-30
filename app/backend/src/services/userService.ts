@@ -11,10 +11,10 @@ class UserService {
   public async login(user:ILoginUser): Promise<string | null> {
     const { password } = user;
     const result = await this.modelUser.findOne({ where: { email: user.email } });
-    if (!result) throw new HttpException(404, 'user not found');
+    if (!result) throw new HttpException(401, 'Invalid email or password');
 
     const comparePassword = bcrypt.compareSync(password, result.password);
-    if (!comparePassword) throw new HttpException(400, 'password invalid');
+    if (!comparePassword) throw new HttpException(401, 'Invalid email or password');
     const { id, username, role, email } = result;
     const token = createToken({ id, username, role, email });
     return token;
