@@ -12,7 +12,7 @@ chai.use(chaiHttp);
 
 const { expect } = chai;
 
-describe('rota teams', () => {
+describe('rota /teams', () => {
   describe('Usando o método GET ', () => {
     let chaiHttpResponse: Response;
 
