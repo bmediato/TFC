@@ -13,6 +13,14 @@ class UserController {
       next(error);
     }
   }
+
+  public getByRole = (req: Request, res: Response) => {
+    const { user } = req.body;
+    const { role } = user;
+
+    if (!user) return res.status(401).json({ message: 'Token must be a valid token' });
+    return res.status(200).json({ role });
+  };
 }
 
 export default UserController;
