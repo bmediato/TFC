@@ -1,7 +1,8 @@
 import { ModelStatic } from 'sequelize';
-import IMatches from '../interfaces/IMatches';
+import { IMatches, INewMatches } from '../interfaces/IMatches';
 import Matches from '../database/models/Matches';
 import Teams from '../database/models/Teams';
+import HttpException from '../exceptions/HttpException';
 
 class MatcheService {
   private modelMatch: ModelStatic<Matches> = Matches;
@@ -37,6 +38,19 @@ class MatcheService {
       { homeTeamGoals, awayTeamGoals },
       { where: { id } },
     );
+    return result;
+  }
+
+  public async create(newMatches: INewMatches) {
+    const { homeTeamId, awayTeamId, homeTeamGoals, awayTeamGoals } = newMatches;
+    const home = await this.modelMatch.findOne({ where: { id: homeTeamId } });
+    const away = await this.modelMatch.findOne({ where: { id: awayTeamId } });
+    if (homeTeamId === awayTeamId) {
+      throw new HttpException(422, 'It is not possible to create a match with two equal teams');
+    }
+    if (!home || !away) throw new HttpException(404, 'There is no team with such id!');
+
+    const result = this.modelMatch.create({ homeTeamId, awayTeamId, homeTeamGoals, awayTeamGoals });
     return result;
   }
 }

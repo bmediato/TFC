@@ -41,6 +41,15 @@ class MatcheController {
     await this.service.updateGoals(Number(id), { homeTeamGoals, awayTeamGoals });
     return res.status(200).json({ message: 'Atualizado' });
   };
+
+  public create = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      const result = await this.service.create(req.body);
+      return res.status(201).json(result);
+    } catch (error) {
+      next(error);
+    }
+  };
 }
 
 export default MatcheController;

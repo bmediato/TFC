@@ -50,6 +50,7 @@ Matches.init({
     type: BOOLEAN,
     allowNull: false,
     field: 'in_progress',
+    defaultValue: false,
   },
 }, {
   underscored: true,
