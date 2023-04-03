@@ -29,10 +29,18 @@ class MatcheController {
     }
   };
 
-  public updateMatches = async (req:Request, res: Response) => {
+  public finishMatches = async (req:Request, res: Response) => {
     const { id } = req.params;
-    await this.service.updateMatches(Number(id));
+    await this.service.finishMatches(Number(id));
     return res.status(200).json({ message: 'Finished' });
   };
+
+  public updateGoals = async (req: Request, res: Response) => {
+    const { id } = req.params;
+    const { homeTeamGoals, awayTeamGoals } = req.body;
+    await this.service.updateGoals(Number(id), { homeTeamGoals, awayTeamGoals });
+    return res.status(200).json({ message: 'Atualizado' });
+  };
 }
+
 export default MatcheController;

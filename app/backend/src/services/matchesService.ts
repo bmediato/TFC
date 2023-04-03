@@ -1,4 +1,5 @@
 import { ModelStatic } from 'sequelize';
+import IMatches from '../interfaces/IMatches';
 import Matches from '../database/models/Matches';
 import Teams from '../database/models/Teams';
 
@@ -26,8 +27,17 @@ class MatcheService {
     return result;
   }
 
-  public async updateMatches(id: number) {
+  public async finishMatches(id: number) {
     await this.modelMatch.update({ inProgress: false }, { where: { id } });
+  }
+
+  public async updateGoals(id:number, goals: IMatches) {
+    const { homeTeamGoals, awayTeamGoals } = goals;
+    const result = await this.modelMatch.update(
+      { homeTeamGoals, awayTeamGoals },
+      { where: { id } },
+    );
+    return result;
   }
 }
 

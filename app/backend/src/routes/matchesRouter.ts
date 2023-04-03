@@ -9,6 +9,8 @@ matchesRouter.get('/', (req:Request, res:Response, next: NextFunction) => matchC
   .getByProgress(req, res, next));
 
 matchesRouter.patch('/:id/finish', validateToken, (req:Request, res: Response) => matchController
-  .updateMatches(req, res));
+  .finishMatches(req, res));
 
+matchesRouter.patch('/:id', validateToken, (req:Request, res:Response) => matchController
+  .updateGoals(req, res));
 export default matchesRouter;
