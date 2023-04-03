@@ -28,6 +28,11 @@ class MatcheController {
       return this.getAll(req, res, next);
     }
   };
-}
 
+  public updateMatches = async (req:Request, res: Response) => {
+    const { id } = req.params;
+    await this.service.updateMatches(Number(id));
+    return res.status(200).json({ message: 'Finished' });
+  };
+}
 export default MatcheController;

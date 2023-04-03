@@ -25,6 +25,10 @@ class MatcheService {
     });
     return result;
   }
+
+  public async updateMatches(id: number) {
+    await this.modelMatch.update({ inProgress: false }, { where: { id } });
+  }
 }
 
 export default MatcheService;

@@ -12,6 +12,7 @@ userRouter.post(
   validateLogin,
   (req: Request, res: Response, next:NextFunction) => userController.login(req, res, next),
 );
+
 userRouter.get(
   '/role',
   validateToken,
