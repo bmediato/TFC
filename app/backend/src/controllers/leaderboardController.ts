@@ -8,6 +8,11 @@ class LeaderboardController {
     const result = await this.servie.getHomeTeams();
     return res.status(200).json(result);
   };
+
+  public getAwayTeams = async (req: Request, res: Response) => {
+    const result = await this.servie.getAwayTeams();
+    return res.status(200).json(result);
+  };
 }
 
 export default LeaderboardController;

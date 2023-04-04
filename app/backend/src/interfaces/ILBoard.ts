@@ -7,4 +7,6 @@ export interface ILBoard {
   totalLosses: number;
   goalsFavor: number;
   goalsOwn: number;
+  goalsBalance: number;
+  efficiency: number;
 }
