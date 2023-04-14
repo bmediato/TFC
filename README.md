@@ -14,7 +14,7 @@ Tecnologias utilizadas:
 - JWT.
 
 <details>
-<summary><strong>🐋 Instalação do projeto Rodando no Docker</strong></summary><br />
+<summary><strong> Instalação do projeto </strong></summary><br />
 
 1. Primeiro abra o terminal e crie um diretório com o comando <strong>mkdir</strong>:
 ``` 
@@ -24,23 +24,18 @@ Tecnologias utilizadas:
 2. Entre no diretório que acabou de criar e clone o projeto:
 ``` 
  cd projetos
- git clone git@github.com:bmediato/smith.git
+ git clone git@github.com:bmediato/TFC.git
 ```
 
-3. Entre no diretório do projeto e rode o serviço `node` com o comando:
+3. Entre no diretório do projeto e rode o serviço `node` na raiz do projeto com o comando:
 ``` 
- cd smith
- docker-compose up -d
+ cd tfc
+ npm run install
 ```
 
-4. Use os comandos para acessar o terminal e instalar as dependências:
+4. Por fim e ainda na raiz do projeto, use o comando para subir o docker compose:
 ``` 
- docker exec -it trybesmith bash
- npm install
+ npm run compose:up
 ```
 </details>
 
-<details>
-
-
-</details>
