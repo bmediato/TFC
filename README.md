@@ -1,4 +1,4 @@
-## Bem-Vindo(a) ao repositório do projeto Trybe Futebol Clube!
+## Bem-Vindo(a) ao repositório do projeto Torneio Futebol Clube!
 
 
 O TFC é um site informativo sobre partidas e classificações de futebol!
