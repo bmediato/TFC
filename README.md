@@ -39,3 +39,65 @@ Tecnologias utilizadas:
 ```
 </details>
 
+# TFC - Torneio de Futebol Online
+
+O TFC é um site informativo sobre partidas e classificações de futebol. Este projeto inclui uma API desenvolvida em Node.js que permite criar, editar, excluir e selecionar partidas. Além disso, as aplicações são integradas usando Docker Compose para funcionarem com um banco de dados MySQL. A autenticação é realizada através de JWT (JSON Web Tokens).
+
+## Funcionalidades Principais
+
+- Criação de Partidas: A API permite criar novas partidas de futebol, com informações como data, horário, equipes e resultado.
+- Edição de Partidas: As partidas existentes podem ser editadas, permitindo alterar as informações de data, horário, equipes ou resultado.
+- Exclusão de Partidas: A API permite que partidas não mais necessárias sejam excluídas.
+- Consulta de Partidas: Os usuários podem consultar a lista de partidas existentes.
+- Autenticação com JWT: A API utiliza JWT para autenticar e proteger rotas sensíveis.
+
+## Tecnologias Utilizadas
+
+- TypeScript
+- Node.js
+- Express
+- Sequelize (ORM para banco de dados)
+- MySQL
+- Docker
+- JWT (JSON Web Tokens para autenticação)
+
+## Configuração do Ambiente de Desenvolvimento
+
+1. Clone este repositório: `git clone https://github.com/seu-usuario/seu-repositorio.git`
+2. Navegue até o diretório do projeto: `cd seu-repositorio`
+3. Instale as dependências: `npm install`
+4. Configure o banco de dados MySQL:
+   - Crie um banco de dados no MySQL.
+   - Renomeie o arquivo `.env.example` para `.env` e configure as variáveis de ambiente relacionadas ao banco de dados.
+5. Execute as migrações do banco de dados: `npx sequelize db:migrate`
+6. Inicie a API: `npm start`
+
+Certifique-se de fornecer instruções detalhadas sobre como configurar e executar o projeto em um ambiente de desenvolvimento.
+
+## Executando com Docker Compose
+
+1. Certifique-se de ter o Docker e o Docker Compose instalados e em execução no seu sistema.
+2. Clone este repositório: `git clone https://github.com/seu-usuario/seu-repositorio.git`
+3. Navegue até o diretório do projeto: `cd seu-repositorio`
+4. Execute o Docker Compose para construir e iniciar a aplicação e o banco de dados: `docker-compose up`
+
+Certifique-se de adaptar os comandos para o seu projeto e ambiente específicos.
+
+## Contribuição
+
+Contribuições são bem-vindas! Se você deseja contribuir com o projeto, siga as etapas abaixo:
+
+1. Fork este repositório.
+2. Crie um branch com sua nova funcionalidade ou correção de bug: `git checkout -b minha-funcionalidade`.
+3. Faça commit das suas alterações: `git commit -m 'Adiciona nova funcionalidade'`.
+4. Faça push para o branch: `git push origin minha-funcionalidade`.
+5. Envie um pull request.
+
+## Licença
+
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+
+## Contato
+
+Se tiver alguma dúvida ou sugestão sobre o projeto, entre em contato com <a href = "mailto:beatriz.mediatto2@gmail.com">beatriz.mediatto2@gmail.com</a>
+
