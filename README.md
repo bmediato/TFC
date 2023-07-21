@@ -63,25 +63,10 @@ O TFC é um site informativo sobre partidas e classificações de futebol. Este 
 
 ## Configuração do Ambiente de Desenvolvimento
 
-1. Clone este repositório: `git clone https://github.com/seu-usuario/seu-repositorio.git`
-2. Navegue até o diretório do projeto: `cd seu-repositorio`
+1. Clone este repositório: `git clone git@github.com:bmediato/TFC.git`
+2. Navegue até o diretório do projeto: `cd tfc`
 3. Instale as dependências: `npm install`
-4. Configure o banco de dados MySQL:
-   - Crie um banco de dados no MySQL.
-   - Renomeie o arquivo `.env.example` para `.env` e configure as variáveis de ambiente relacionadas ao banco de dados.
-5. Execute as migrações do banco de dados: `npx sequelize db:migrate`
-6. Inicie a API: `npm start`
-
-Certifique-se de fornecer instruções detalhadas sobre como configurar e executar o projeto em um ambiente de desenvolvimento.
-
-## Executando com Docker Compose
-
-1. Certifique-se de ter o Docker e o Docker Compose instalados e em execução no seu sistema.
-2. Clone este repositório: `git clone https://github.com/seu-usuario/seu-repositorio.git`
-3. Navegue até o diretório do projeto: `cd seu-repositorio`
-4. Execute o Docker Compose para construir e iniciar a aplicação e o banco de dados: `docker-compose up`
-
-Certifique-se de adaptar os comandos para o seu projeto e ambiente específicos.
+4. Comando para subir o docker compose: `npm run compose:up`
 
 ## Contribuição
 
